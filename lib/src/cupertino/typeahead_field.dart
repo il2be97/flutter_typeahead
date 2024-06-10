@@ -23,6 +23,7 @@ class CupertinoTypeAheadField<T> extends RawTypeAheadField<T> {
     super.focusNode,
     super.hideKeyboardOnDrag,
     super.hideOnEmpty,
+    super.suggestionPadding,
     super.hideOnError,
     super.hideOnLoading,
     super.showOnFocus,

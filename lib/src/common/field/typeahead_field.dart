@@ -47,6 +47,7 @@ abstract class RawTypeAheadField<T> extends StatefulWidget {
     this.listBuilder,
     this.constraints,
     this.offset,
+    this.suggestionPadding,
   });
 
   /// Builds the text field that will be used to search for the suggestions.
@@ -66,6 +67,9 @@ abstract class RawTypeAheadField<T> extends StatefulWidget {
 
   /// {@macro flutter_typeahead.SuggestionsField.direction}
   final VerticalDirection? direction;
+
+  /// The padding of the suggestions box.
+  final EdgeInsets? suggestionPadding;
 
   /// {@macro flutter_typeahead.SuggestionsField.constraints}
   final BoxConstraints? constraints;
@@ -191,6 +195,7 @@ class _RawTypeAheadFieldState<T> extends State<RawTypeAheadField<T>> {
       controller: widget.suggestionsController,
       onSelected: widget.onSelected,
       focusNode: focusNode,
+      suggestionPadding: widget.suggestionPadding,
       direction: widget.direction,
       autoFlipDirection: widget.autoFlipDirection,
       autoFlipMinHeight: widget.autoFlipMinHeight,

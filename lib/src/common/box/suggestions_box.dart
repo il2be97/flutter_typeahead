@@ -120,10 +120,7 @@ class SuggestionsBox<T> extends StatelessWidget {
                     controller: controller,
                     transitionBuilder: transitionBuilder,
                     animationDuration: animationDuration,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: builder(context),
-                    ),
+                    child: builder(context),
                   ),
                 ),
               ),

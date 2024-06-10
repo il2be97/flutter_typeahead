@@ -267,6 +267,7 @@ class _SuggestionsFieldState<T> extends State<SuggestionsField<T>> {
             child: list,
           );
 
+          list = Padding(padding: EdgeInsets.all(20), child: list);
           return list;
         },
         child: FloaterTarget(

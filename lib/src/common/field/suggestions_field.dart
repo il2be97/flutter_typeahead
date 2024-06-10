@@ -33,6 +33,7 @@ class SuggestionsField<T> extends StatefulWidget {
     this.decorationBuilder,
     this.transitionBuilder,
     this.animationDuration,
+    this.suggestionPadding,
   });
 
   /// {@macro flutter_typeahead.SuggestionsBox.controller}
@@ -57,6 +58,9 @@ class SuggestionsField<T> extends StatefulWidget {
   /// This is typically an [EditableText] widget.
   /// {@endtemplate}
   final Widget child;
+
+  /// The padding of the suggestions box.
+  final EdgeInsets? suggestionPadding;
 
   /// {@template flutter_typeahead.SuggestionsField.onSelected}
   /// Called when a suggestion is selected.
@@ -267,7 +271,10 @@ class _SuggestionsFieldState<T> extends State<SuggestionsField<T>> {
             child: list,
           );
 
-          list = Padding(padding: EdgeInsets.all(20), child: list);
+          if (widget.suggestionPadding != null) {
+            list = Padding(padding: widget.suggestionPadding!, child: list);
+          }
+
           return list;
         },
         child: FloaterTarget(

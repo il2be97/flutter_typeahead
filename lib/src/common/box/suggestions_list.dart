@@ -196,13 +196,14 @@ class _SuggestionsListState<T> extends State<SuggestionsList<T>> {
           );
         }
 
-        Widget current = ListView.separated(
+        return ListView.separated(
           // We cannot pass a controller, as we want to inherit it from
           // the PrimaryScrollController of the SuggestionsBox.
           // This happens automatically as long as we
           // dont pass a controller and pass either null or true for primary.
           controller: null,
           primary: null,
+          padding: EdgeInsets.zero,
           shrinkWrap: true,
           keyboardDismissBehavior: (widget.hideKeyboardOnDrag ?? false)
               ? ScrollViewKeyboardDismissBehavior.onDrag
@@ -215,12 +216,6 @@ class _SuggestionsListState<T> extends State<SuggestionsList<T>> {
               widget.itemSeparatorBuilder?.call(context, index) ??
               const SizedBox.shrink(),
         );
-
-        current = Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: current,
-        );
-        return current;
       },
     );
   }
